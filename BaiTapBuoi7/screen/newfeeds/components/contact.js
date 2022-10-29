@@ -7,7 +7,9 @@ const Contact = props => {
         {props.avartar.map((val, index) => (
           <View key={index} style={style.imageList_item}>
             <Image style={style.image} source={val.image} />
-            <Text>{val.name}</Text>
+            <Text style={{color: 'black', fontWeight: '500', fontSize: 15}}>
+              {val.name}
+            </Text>
           </View>
         ))}
       </View>

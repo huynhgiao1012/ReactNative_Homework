@@ -14,15 +14,15 @@ const NewfeedPost = props => {
           <View style={style.postHeader}>
             <Image source={val.image} style={style.postHeader_Image} />
             <View style={{paddingLeft: 10, paddingRight: 30}}>
-              <Text>{val.title}</Text>
+              <Text style={{color: 'black', fontSize: 15}}>{val.title}</Text>
               <View style={style.postName_Time}>
-                <Text>{val.name}</Text>
-                <Text>{val.time}</Text>
+                <Text style={style.postName_Time_Text}>{val.name}</Text>
+                <Text style={style.postName_Time_Text}>{val.time}</Text>
               </View>
             </View>
             <Image source={require('../newfeeds/more.png')} />
           </View>
-          <Text>{val.content}</Text>
+          <Text style={{color: 'black', fontSize: 15}}>{val.content}</Text>
           <View style={style.postFooter}>
             <TouchableOpacity onPress={handleClickHeart}>
               <Image
@@ -70,6 +70,10 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  postName_Time_Text: {
+    color: '#cccccc',
+    fontSize: 15,
+  },
   postFooter: {
     paddingTop: 10,
     paddingBottom: 10,
@@ -86,6 +90,7 @@ const style = StyleSheet.create({
     marginRight: 10,
     fontSize: 16,
     fontWeight: '400',
+    color: 'black',
   },
 });
 export default NewfeedPost;

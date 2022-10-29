@@ -5,7 +5,9 @@ const NewFeedHeader = props => {
   return (
     <View style={Style.bar}>
       <Image source={require('../newfeeds/camera.png')} />
-      <Text style={{fontSize: 18, color: 'black'}}>{props.title}</Text>
+      <Text style={{fontSize: 18, color: 'black', fontWeight: '600'}}>
+        {props.title}
+      </Text>
       <Image source={require('../newfeeds/pen.png')} />
     </View>
   );
