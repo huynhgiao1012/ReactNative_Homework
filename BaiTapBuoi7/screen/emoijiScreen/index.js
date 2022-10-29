@@ -20,7 +20,7 @@ const EmojiApp = () => {
         <Image source={emoji} style={style.selectedImage} />
         <View style={style.imageList}>
           {datas.map((value, index) => (
-            <TouchableOpacity onPress={() => handleClick(value)}>
+            <TouchableOpacity key={index} onPress={() => handleClick(value)}>
               <Image style={style.image} source={value} />
             </TouchableOpacity>
           ))}
