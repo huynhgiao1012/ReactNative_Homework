@@ -5,9 +5,21 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
-import React, {memo} from 'react';
+import React, {memo, useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {searchByCategory} from '../Screen/reduxToolkit/ReduxThunk';
+const windowWidth = Dimensions.get('window').width;
 const AppBar2 = () => {
+  const [text, setText] = useState('');
+  const dispatch = useDispatch();
+  const search = newText => {
+    setText(newText);
+  };
+  useEffect(() => {
+    dispatch(searchByCategory(text));
+  }, [text]);
   return (
     <View style={Style.appBar2}>
       <Text style={Style.title}>Find Yours Dream Shoes</Text>
@@ -15,12 +27,13 @@ const AppBar2 = () => {
         <View style={Style.search}>
           <Image
             source={require('../Assets/Icon/search.png')}
-            style={{marginLeft: 15}}
+            style={{marginLeft: 15, marginRight: 15}}
           />
           <TextInput
             style={Style.search_input}
             placeholder={'Search Shoes...'}
             inlineImageLeft={'adjust.png'}
+            onSubmitEditing={value => search(value.nativeEvent.text)}
           />
         </View>
         <TouchableOpacity style={Style.button}>
@@ -32,11 +45,12 @@ const AppBar2 = () => {
 };
 const Style = StyleSheet.create({
   appBar2: {
-    padding: 20,
+    width: windowWidth,
+    padding: 15,
   },
   appBar2_2: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   title: {
@@ -51,14 +65,14 @@ const Style = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    marginRight: 10,
+    marginRight: 5,
     borderRadius: 12,
   },
   search_input: {
     borderWidth: 1,
     paddingLeft: 20,
-    width: 270,
-    borderColor: '#f8f8f8',
+    width: windowWidth / 2 + 40,
+    borderColor: 'white',
     fontSize: 18,
     fontWeight: '500',
     borderTopRightRadius: 12,

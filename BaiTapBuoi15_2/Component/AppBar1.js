@@ -22,7 +22,7 @@ const Style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 20,
   },
   arrow: {
     backgroundColor: 'white',
@@ -31,8 +31,8 @@ const Style = StyleSheet.create({
     borderColor: '#f0f0f0',
   },
   avatar: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     borderRadius: 12,
     borderColor: '#f0f0f0',
   },
